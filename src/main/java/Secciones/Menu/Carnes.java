@@ -7,6 +7,7 @@ package Secciones.Menu;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -74,6 +75,12 @@ public class Carnes extends javax.swing.JPanel {
     ImageIcon img = new ImageIcon(getClass().getResource(url));
     return new ImageIcon(img.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH));
     }
+    
+    private void Aceptar_ButtonsActionPerformed(java.awt.event.ActionEvent evt) {
+        DefaultTableModel model = (DefaultTableModel) tabla_pedido.getModel();
+        model.addRow(new Object[]{"Ternera a la llanera", 1, "Unidad", "$30000"});
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -170,7 +177,7 @@ public class Carnes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonTerneraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTerneraActionPerformed
-        // TODO add your handling code here:
+        Aceptar_ButtonsActionPerformed(evt);
     }//GEN-LAST:event_BotonTerneraActionPerformed
 
     private void BotonCerdoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCerdoActionPerformed
