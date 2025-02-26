@@ -9,15 +9,28 @@ import Secciones.Menu.*;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Pedido extends javax.swing.JPanel {
+
+    private javax.swing.JTable tabla_pedido;
 
     public Pedido() {
         initComponents();
         iniCarnes();
         desabilitarformulario();
+        initializeTable();
     }
+
+    private void initializeTable() {
+        tabla_pedido = new JTable(new DefaultTableModel(
+            new Object [][] {},
+            new String [] {"Nombre", "Cantidad", "Unidad", "Total"}
+        ));
+    }
+
     private void iniCarnes(){
         inicio(new Carnes());
     }
@@ -31,6 +44,12 @@ public class Pedido extends javax.swing.JPanel {
         Seccion.revalidate();
         Seccion.repaint();
     }
+
+    private void BotonTerneraActionPerformed(java.awt.event.ActionEvent evt) {
+        DefaultTableModel model = (DefaultTableModel) tabla_pedido.getModel();
+        model.addRow(new Object[]{"Ternera a la llanera", 1, "Unidad", "$30000"});
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
